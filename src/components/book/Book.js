@@ -1,10 +1,15 @@
-import React from "react";
-
-const Book = () => {
+import React, { useContext } from "react";
+import { BookContext } from "../../context/BookContext";
+const Book = (props) => {
+  const { dispatch } = useContext(BookContext);
+  console.log(props);
+  const handleClick = (e) => {
+    dispatch({ type: "REMOVE_BOOK", payload: props.id });
+  };
   return (
-    <div>
-      <h1>Book</h1>
-    </div>
+    <li onClick={handleClick}>
+      <span>{props.title}</span> {"-----"} <span>{props.author}</span>
+    </li>
   );
 };
 

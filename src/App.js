@@ -1,10 +1,13 @@
-import React from 'react';
-import BookList from './components/booklist/BookList';
+import React from "react";
+import BookList from "./components/booklist/BookList";
+import BookContextProvider from "./context/BookContext";
 
 function App() {
   return (
     <div>
-      <BookList />
+      <BookContextProvider>
+        <BookList />
+      </BookContextProvider>
     </div>
   );
 }
